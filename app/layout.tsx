@@ -6,7 +6,7 @@ import Sidebar from '@/components/Sidebar'
 const fightree = Figtree({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Spotify Rebuilds',
+  title: 'Spotify Rebuild',
   description: 'This is the Soptify Clone built with NEXTJS13',
   icons: './logo.png',
 }
