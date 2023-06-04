@@ -6,6 +6,7 @@ import { HiHome } from 'react-icons/hi'
 import { BiSearch } from 'react-icons/bi'
 import Box from '@/commons/Box'
 import SidebarItem from './SidebarItem'
+import Library from './Library'
 
 interface ISdidebar {
   children: React.ReactNode
@@ -34,16 +35,19 @@ const Sidebar = ({ children }: ISdidebar) => {
 
   return (
     <div className='flex h-full'>
-      <div className='hidden md:flex flex-col gap-y-2 bg-black h-full w-[200px] p-2'>
-        <Box className='bg-neutral-900'>
+      <div className='hidden md:flex flex-col gap-y-2 bg-primary-black h-full w-[230px] p-2'>
+        <Box className='bg-neutral-900 rounded-lg'>
           <div className='flex flex-col gap-y-4 px-5 py-4'>
             {routes.map(item => (
               <SidebarItem key={item.label} {...item} />
             ))}
           </div>
         </Box>
-        <Box className='overflow-y-auto h-full bg-neutral-900 px-5 py-4'>Song Library</Box>
+        <Box className='rounded-lg overflow-y-auto h-full bg-neutral-900'>
+          <Library />
+        </Box>
       </div>
+      <main className='h-full flex-1 overflow-y-auto py-2'>{children}</main>
     </div>
   )
 }

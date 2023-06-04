@@ -1,3 +1,9 @@
+import Header from '@/components/Header'
+
 export default function Home() {
-  return <div>ok</div>
+  return (
+    <div className='bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto'>
+      <Header>children</Header>
+    </div>
+  )
 }
