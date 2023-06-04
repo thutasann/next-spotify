@@ -21,12 +21,14 @@ const Header = ({ className, children }: IHeader) => {
       <div className='w-full mb-4 flex items-center justify-between'>
         <div className='hidden md:flex gap-x-2 items-center'>
           <button
+            aria-label='previous btn'
             onClick={() => router.back()}
             className='rounded-full bg-primary-dark flex items-center justify-center hove:text-primary-dark/80 transition-all duration-500 ease-in-out'
           >
             <RxCaretLeft className='text-neutral-400 hover:text-white' size={35} />
           </button>
           <button
+            aria-label='next btn'
             onClick={() => router.forward()}
             className='rounded-full bg-primary-dark flex items-center justify-center hove:text-primary-dark/80 transition-all duration-500 ease-in-out'
           >
