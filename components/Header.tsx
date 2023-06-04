@@ -50,7 +50,7 @@ const Header = ({ className, children }: IHeader) => {
             </Button>
           </div>
           <div>
-            <Button onClick={() => {}} className='!bg-white px-6 py-2'>
+            <Button onClick={() => {}} className='!bg-white !text-primary-dark px-6 py-2'>
               Sign In
             </Button>
           </div>
