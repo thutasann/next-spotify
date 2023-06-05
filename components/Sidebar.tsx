@@ -7,6 +7,7 @@ import { BiSearch } from 'react-icons/bi'
 import Box from '@/commons/Box'
 import SidebarItem from './SidebarItem'
 import Library from './Library'
+import { IRoutes } from '@/types'
 
 interface ISdidebar {
   children: React.ReactNode
