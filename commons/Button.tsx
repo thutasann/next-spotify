@@ -6,7 +6,7 @@ const Button = forwardRef<HTMLButtonElement, IButton>(({ className, children, di
   return (
     <button
       type={type}
-      className={`w-full rounded-full bg-green-500 border border-transparent px-3 py-3 disabled:cursor-pointer disabled:opacity-50 text-primary-dark font-bold hover:opacity-75 transition-all ease-in-out duration-700, ${className}`}
+      className={`w-full rounded-full bg-green-500 border border-transparent px-3 py-3 disabled:cursor-not-allowed disabled:opacity-50  text-primary-dark font-bold hover:opacity-75 transition-all ease-in-out duration-700, ${className}`}
       disabled={disabled}
       ref={ref}
       {...props}
