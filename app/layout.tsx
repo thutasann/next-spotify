@@ -20,7 +20,6 @@ export const revalidate = 3000
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const userSongs = await getSongsByUserId()
-  console.log('userSongs', userSongs)
 
   return (
     <html lang='en'>

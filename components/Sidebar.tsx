@@ -29,7 +29,7 @@ const Sidebar = ({ children, songs }: ISdidebar) => {
         icon: BiSearch,
         label: 'Search',
         active: pathname === '/search',
-        href: '/serach',
+        href: '/search',
       },
     ],
     [pathname]
