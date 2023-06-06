@@ -6,6 +6,7 @@ import SupabaseProvider from '@/providers/SupabaseProvider'
 import UserProvider from '@/providers/UserProvider'
 import ModalProvider from '@/providers/ModalProvider'
 import ToastProvider from '@/providers/ToastProvider'
+import getSongsByUserId from '@/actions/getSongsByUserId'
 
 const fightree = Figtree({ subsets: ['latin'] })
 
@@ -15,7 +16,12 @@ export const metadata: Metadata = {
   icons: './logo.png',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const revalidate = 3000
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const userSongs = await getSongsByUserId()
+  console.log('userSongs', userSongs)
+
   return (
     <html lang='en'>
       <body className={fightree.className}>
@@ -23,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider />
-            <Sidebar>{children}</Sidebar>
+            <Sidebar songs={userSongs}>{children}</Sidebar>
           </UserProvider>
         </SupabaseProvider>
       </body>
