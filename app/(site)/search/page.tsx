@@ -2,15 +2,16 @@ import getSongsByTitle from '@/actions/getSongsByTitle'
 import Header from '@/components/Header'
 import SearchInput from '@/components/SearchInput'
 import React from 'react'
+import SearchContent from './components/SearchContent'
 
-interface ISearchPage {
-  serachParams: {
-    title: string
-  }
+export const revalidate = 0
+
+interface SearchProps {
+  searchParams: { title: string }
 }
 
-const SearchPage = async ({ serachParams }: ISearchPage) => {
-  // const songs = await getSongsByTitle(serachParams.title)
+const SearchPage = async ({ searchParams }: SearchProps) => {
+  const songs = await getSongsByTitle(searchParams.title)
   return (
     <div className='bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto'>
       <Header className='from-bg-neutral-900'>
@@ -19,6 +20,7 @@ const SearchPage = async ({ serachParams }: ISearchPage) => {
           <SearchInput />
         </div>
       </Header>
+      <SearchContent songs={songs} />
     </div>
   )
 }

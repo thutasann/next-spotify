@@ -1,12 +1,11 @@
 'use server'
 
-import { Song } from '@/types'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
-import { title } from 'process'
+import { Song } from '@/types'
 import getSongs from './getSongs'
 
-const getSongsByTitle = async (tilte: string): Promise<Array<Song>> => {
+const getSongsByTitle = async (title: string): Promise<Song[]> => {
   const supabase = createServerComponentClient({
     cookies: cookies,
   })
@@ -16,10 +15,10 @@ const getSongsByTitle = async (tilte: string): Promise<Array<Song>> => {
     return allSongs
   }
 
-  const { data, error } = await supabase.from('songs').select('*').ilike('title', `%${tilte}%`).order('created_at', { ascending: false })
+  const { data, error } = await supabase.from('songs').select('*').ilike('title', `%${title}%`).order('created_at', { ascending: false })
 
   if (error) {
-    console.error('ERROR GETTING SONGS => ', error)
+    console.log(error.message)
   }
 
   return (data as Song[]) || []
