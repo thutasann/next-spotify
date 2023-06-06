@@ -4,7 +4,7 @@ import SearchInput from '@/components/SearchInput'
 import React from 'react'
 import SearchContent from './components/SearchContent'
 
-export const revalidate = 0
+export const revalidate = 30
 
 interface SearchProps {
   searchParams: { title: string }

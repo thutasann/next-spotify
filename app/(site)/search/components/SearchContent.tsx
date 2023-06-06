@@ -1,5 +1,6 @@
 'use client'
 
+import LikeButton from '@/components/LikeButton'
 import MediaItem from '@/components/MediaItem'
 import { Song } from '@/types'
 import React from 'react'
@@ -9,7 +10,6 @@ interface ISearchContent {
 }
 
 const SearchContent: React.FC<ISearchContent> = ({ songs }) => {
-  console.log('songs', songs)
   if (songs.length === 0) {
     return <div className='flex flex-col gap-y-2 w-full px-6 text-neutral-400'>No songs found.</div>
   }
@@ -20,6 +20,7 @@ const SearchContent: React.FC<ISearchContent> = ({ songs }) => {
           <div className='flex-1'>
             <MediaItem onClick={() => {}} data={song} />
           </div>
+          <LikeButton songId={song.id} />
         </div>
       ))}
     </div>

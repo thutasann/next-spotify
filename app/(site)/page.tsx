@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import ListItem from '@/components/ListItem'
 import PageContent from '@/components/PageContent'
 
-export const revalidate = 3000
+export const revalidate = 30
 
 export default async function Home() {
   const songs = await getSongs()
