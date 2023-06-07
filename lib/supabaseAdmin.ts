@@ -1,5 +1,3 @@
-'use server'
-
 import Stripe from 'stripe'
 import { createClient } from '@supabase/supabase-js'
 import type { Database } from '@/types_db'
