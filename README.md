@@ -4,5 +4,6 @@
 - Supabase
 - PostgreSQL
 - Stripe
+- Subscriptions
 - Radix-UI
 - Tailwind
