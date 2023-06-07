@@ -8,6 +8,7 @@ export const revalidate = 30
 
 const LikedPage = async () => {
   const songs = await getLikedSongs()
+
   return (
     <div className='bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto'>
       <Header>
