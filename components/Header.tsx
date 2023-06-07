@@ -12,6 +12,7 @@ import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useUser } from '@/hooks/useUser'
 import { FaUserAlt } from 'react-icons/fa'
 import { toast } from 'react-hot-toast'
+import usePlayer from '@/hooks/usePlayer'
 
 interface IHeader {
   children: React.ReactNode
@@ -20,12 +21,14 @@ interface IHeader {
 
 const Header = ({ className, children }: IHeader) => {
   const router = useRouter()
+  const player = usePlayer()
   const authModal = useAuthModal()
   const supabseClient = useSupabaseClient()
   const { user, subscription } = useUser()
 
   const handleLogut = async () => {
     const { error } = await supabseClient.auth.signOut()
+    player.reset()
     router.refresh()
     if (error) {
       toast.error(error.message || 'Logout Failed')
